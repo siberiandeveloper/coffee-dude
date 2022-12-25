@@ -1,9 +1,11 @@
 package tld.dude.coffee.coffeedude.domain.order.model
 
-interface Ingredient {
+interface Order {
 
     fun getId(): Long
 
-    fun getName(): String
+    fun getClient(): Client
+
+    fun getBeverage(): Beverage
 
 }

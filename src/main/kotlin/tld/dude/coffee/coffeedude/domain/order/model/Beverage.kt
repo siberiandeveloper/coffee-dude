@@ -1,12 +1,14 @@
 package tld.dude.coffee.coffeedude.domain.order.model
 
-import java.text.DecimalFormat
+import java.math.BigDecimal
 
-interface Beaverage {
+interface Beverage {
+
+    fun getId(): Long
 
     fun getName(): String
 
-    fun getCost(): DecimalFormat
+    fun getCost(): BigDecimal
 
     fun getIngredients(): List<Ingredient>
 
