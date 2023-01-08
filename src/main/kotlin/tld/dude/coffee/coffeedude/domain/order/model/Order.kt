@@ -1,11 +1,26 @@
 package tld.dude.coffee.coffeedude.domain.order.model
 
-interface Order {
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
+import jakarta.persistence.ManyToOne
+import jakarta.persistence.OneToMany
 
-    fun getId(): Long
+@Entity
+class Order(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long,
+    @ManyToOne
+    val client: Client,
+    @OneToMany
+    val beverages: ArrayList<Beverage>,
+    val size: CupSize,
+) {
 
-    fun getClient(): Client
-
-    fun getBeverage(): Beverage
+    fun addBeverage(beverage: Beverage) {
+        beverages.add(beverage)
+    }
 
 }

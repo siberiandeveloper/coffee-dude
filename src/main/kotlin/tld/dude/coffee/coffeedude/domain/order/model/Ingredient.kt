@@ -1,9 +1,14 @@
 package tld.dude.coffee.coffeedude.domain.order.model
 
-interface Ingredient {
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
 
-    fun getId(): Long
-
-    fun getName(): String
-
-}
+@Entity
+class Ingredient(
+    val name: String,
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long? = null,
+)
